@@ -2,6 +2,7 @@ package com.lucky5;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
 
@@ -22,13 +23,13 @@ public class GenericWatcher implements Watcher {
 				_LOG.debug("checking if link is enabled");
 				if(url.getStatus() == AppURLStatus.ENABLED) {
 					final WebClient webClient = new WebClient();
-					webClient.getOptions().setUseInsecureSSL(true);
 					
-					String strTitle = null;
-					final HtmlPage page = webClient.getPage(url.getUrl());
-					System.out.println("checking if link is secured");
+					//String strTitle = null;
+					_LOG.debug("checking if link is secured");
 					
-					if(url.isbSecured()) {
+					/*if(url.isbSecured()) {
+						webClient.getOptions().setUseInsecureSSL(true);
+						final HtmlPage page = webClient.getPage(url.getUrl());
 					    final HtmlForm form = page.getFormByName(url.getCustomProperties().get("formName"));
 					    final HtmlTextInput userField = form.getInputByName(url.getUserKey());
 					    final HtmlPasswordInput passwordField = form.getInputByName(url.getPasswordKey());
@@ -41,19 +42,26 @@ public class GenericWatcher implements Watcher {
 					    final HtmlPage page2 = form.click();
 						strTitle = page2.getTitleText();
 					}
-					else
+					else {
+						final HtmlPage page = webClient.getPage(url.getUrl());
 						strTitle = page.getTitleText();
+					}
 					webClient.closeAllWindows();
 					_LOG.debug("title of next page is " + strTitle);
-					return strTitle.equalsIgnoreCase(url.getCustomProperties().get("expectedTitle"));
+					return strTitle.equalsIgnoreCase(url.getCustomProperties().get("expectedTitle"));*/
+					TimeUnit.SECONDS.sleep(5);
+					return true;
 				}
 			} catch (FailingHttpStatusCodeException e) {
 				e.printStackTrace();
-			} catch (MalformedURLException e) {
+			} /*catch (MalformedURLException e) {
 				e.printStackTrace();
 			} catch (ElementNotFoundException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
+				e.printStackTrace();
+			} */catch (InterruptedException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
