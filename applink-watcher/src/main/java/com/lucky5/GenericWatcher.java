@@ -22,7 +22,7 @@ public class GenericWatcher implements Watcher {
 			try {
 				_LOG.debug("checking if link is enabled");
 				if(url.getStatus() == AppURLStatus.ENABLED) {
-					final WebClient webClient = new WebClient();
+					//final WebClient webClient = new WebClient();
 					
 					//String strTitle = null;
 					_LOG.debug("checking if link is secured");
