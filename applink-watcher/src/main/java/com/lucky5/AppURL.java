@@ -2,6 +2,9 @@ package com.lucky5;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import static com.lucky5.utils.Util.*;
 
 /**
@@ -44,12 +47,15 @@ public class AppURL {
 	public void setUserValue(String userValue) {
 		this.userValue = userValue;
 	}
+	
+	@JsonIgnore
 	public String getPasswordValue() {
 		return passwordValue;
 	}
 	public void setPasswordValue(String passwordValue) {
 		this.passwordValue = passwordValue;
 	}
+	
 	public AppURLStatus getStatus() {
 		return status;
 	}
@@ -79,6 +85,13 @@ public class AppURL {
 	}
 	public Map<String, String> getCustomProperties() {
 		return customProperties;
+	}
+	@Override
+	public String toString() {
+		return "AppURL [url=" + url + ", userKey=" + userKey + ", passwordKey="
+				+ passwordKey + ", userValue=" + userValue + ", status="
+				+ status + ", bSecured=" + bSecured + ", customProperties="
+				+ customProperties + "]";
 	}
 }
 
