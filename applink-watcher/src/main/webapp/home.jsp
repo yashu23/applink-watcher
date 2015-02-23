@@ -51,25 +51,6 @@
 			<div><input type="button" onclick="submitValue()" value="Submit"/></div>
 		</form>
 		</fieldset>
-		
-			<h3>Currently Monitored Groups</h3>
-			<table width="100%">  
-				<tr>
-					<td>App Group Name</td>
-					<td>URL</td>
-					<td>Status</td>
-					<td>Secured</td>
-					<td>Runtime Status</td>
-					<td>Last Check Time</td>	
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>			
-			</table>
+		<div id="dvData"></div>
 	</body>
 </html>

@@ -15,6 +15,18 @@
 					<target>1.6</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<configuration>
+					<scanIntervalSeconds>10</scanIntervalSeconds>
+					<contextPath>/</contextPath>
+					<scanIntervalSeconds>10</scanIntervalSeconds>
+					<stopKey>STOP</stopKey>
+					<stopPort>8005</stopPort>
+					<port>8080</port>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 	<dependencies>
